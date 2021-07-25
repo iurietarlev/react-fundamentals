@@ -15,36 +15,22 @@
       const ListItem = ({children}) => <li>{children}</li>
       const List = props => <ul {...props} />
 
-      const FruitsList = () => (
-        <List className="fruits">
-          <ListItem>orange</ListItem>
-          <ListItem>banana</ListItem>
-        </List>
-      )
-
-      const VegList = () => (
-        <List className="vegetables">
-          <ListItem>carrot</ListItem>
-          <ListItem>potato</ListItem>
-        </List>
-      )
-
-      const FruitItem = () => (
-        <ListItem>
-          Fruits: <FruitsList />
-        </ListItem>
-      )
-
-      const VegItem = () => (
-        <ListItem>
-          Vegetables: <VegList />
-        </ListItem>
-      )
-
       const FoodList = () => (
         <List className="food">
-          <FruitItem />
-          <VegItem />
+          <ListItem>
+            Fruits:
+            <List className="fruits">
+              <ListItem>orange</ListItem>
+              <ListItem>banana</ListItem>
+            </List>
+          </ListItem>
+          <ListItem>
+            Vegetables:
+            <List className="vegetables">
+              <ListItem>carrot</ListItem>
+              <ListItem>potato</ListItem>
+            </List>
+          </ListItem>
         </List>
       )
 
