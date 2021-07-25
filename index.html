@@ -12,43 +12,36 @@
   <body>
     <div id="root"></div>
     <script type="module">
-      const root = document.getElementById('root')
+      const orange = React.createElement('li', null, 'orange')
+      const banana = React.createElement('li', null, 'banana')
+      const carrot = React.createElement('li', null, 'carrot')
+      const potato = React.createElement('li', null, 'potato')
 
-      const foodList = document.createElement('ul')
-      foodList.setAttribute('class', 'food')
-      root.appendChild(foodList)
+      const fruitList = React.createElement(
+        'ul',
+        {className: 'fruits'},
+        orange,
+        banana,
+      )
 
-      const fruitItem = document.createElement('li')
-      fruitItem.textContent = 'Fruits:'
-      foodList.appendChild(fruitItem)
+      const vegList = React.createElement(
+        'ul',
+        {className: 'vegetables'},
+        carrot,
+        potato,
+      )
 
-      const fruitList = document.createElement('ul')
-      fruitList.setAttribute('class', 'fruits')
-      fruitItem.appendChild(fruitList)
+      const fruitItem = React.createElement('li', null, 'Fruits:', fruitList)
+      const vegItem = React.createElement('li', null, 'Vegetables:', vegList)
 
-      const orange = document.createElement('li')
-      orange.textContent = 'orange'
-      fruitList.appendChild(orange)
+      const foodList = React.createElement(
+        'ul',
+        {className: 'food'},
+        fruitItem,
+        vegItem,
+      )
 
-      const banana = document.createElement('li')
-      banana.textContent = 'banana'
-      fruitList.appendChild(banana)
-
-      const vegItem = document.createElement('li')
-      vegItem.textContent = 'Vegetables:'
-      foodList.appendChild(vegItem)
-
-      const vegList = document.createElement('ul')
-      vegList.setAttribute('class', 'vegetables')
-      vegItem.appendChild(vegList)
-
-      const carrot = document.createElement('li')
-      carrot.textContent = 'carrot'
-      vegList.appendChild(carrot)
-
-      const potato = document.createElement('li')
-      potato.textContent = 'potato'
-      vegList.appendChild(potato)
+      ReactDOM.render(foodList, document.getElementById('root'))
     </script>
   </body>
 </html>
