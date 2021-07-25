@@ -12,44 +12,43 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      const listItem = ({children}) => <li>{children}</li>
-      const list = props => <ul {...props} />
+      const ListItem = ({children}) => <li>{children}</li>
+      const List = props => <ul {...props} />
 
-      const fruitList = React.createElement(
-        list,
-        {className: 'fruits'},
-        React.createElement(listItem, null, 'orange'),
-        React.createElement(listItem, null, 'banana'),
+      const FruitsList = () => (
+        <List className="fruits">
+          <ListItem>orange</ListItem>
+          <ListItem>banana</ListItem>
+        </List>
       )
 
-      const vegList = React.createElement(
-        list,
-        {className: 'vegetables'},
-        React.createElement(listItem, null, 'carrot'),
-        React.createElement(listItem, null, 'potato'),
+      const VegList = () => (
+        <List className="vegetables">
+          <ListItem>carrot</ListItem>
+          <ListItem>potato</ListItem>
+        </List>
       )
 
-      const fruitItem = React.createElement(
-        listItem,
-        null,
-        'Fruits:',
-        fruitList,
-      )
-      const vegItem = React.createElement(
-        listItem,
-        null,
-        'Vegetables:',
-        vegList,
+      const FruitItem = () => (
+        <ListItem>
+          Fruits: <FruitsList />
+        </ListItem>
       )
 
-      const foodList = React.createElement(
-        list,
-        {className: 'food'},
-        fruitItem,
-        vegItem,
+      const VegItem = () => (
+        <ListItem>
+          Vegetables: <VegList />
+        </ListItem>
       )
 
-      ReactDOM.render(foodList, document.getElementById('root'))
+      const FoodList = () => (
+        <List className="food">
+          <FruitItem />
+          <VegItem />
+        </List>
+      )
+
+      ReactDOM.render(<FoodList />, document.getElementById('root'))
     </script>
   </body>
 </html>
