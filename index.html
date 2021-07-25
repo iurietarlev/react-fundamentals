@@ -11,34 +11,34 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module">
-      const orange = React.createElement('li', null, 'orange')
-      const banana = React.createElement('li', null, 'banana')
-      const carrot = React.createElement('li', null, 'carrot')
-      const potato = React.createElement('li', null, 'potato')
+    <script type="text/babel">
+      const orange = <li>orange</li>
+      const banana = <li>banana</li>
+      const carrot = <li>carrot</li>
+      const potato = <li>potato</li>
 
-      const fruitList = React.createElement(
-        'ul',
-        {className: 'fruits'},
-        orange,
-        banana,
+      const fruitList = (
+        <ul className="fruits">
+          {orange}
+          {banana}
+        </ul>
       )
 
-      const vegList = React.createElement(
-        'ul',
-        {className: 'vegetables'},
-        carrot,
-        potato,
+      const vegList = (
+        <ul className="vegetables">
+          {carrot}
+          {potato}
+        </ul>
       )
 
-      const fruitItem = React.createElement('li', null, 'Fruits:', fruitList)
-      const vegItem = React.createElement('li', null, 'Vegetables:', vegList)
+      const fruitItem = <li>Fruits: {fruitList}</li>
+      const vegItem = <li>Vegetables: {vegList}</li>
 
-      const foodList = React.createElement(
-        'ul',
-        {className: 'food'},
-        fruitItem,
-        vegItem,
+      const foodList = (
+        <ul className="food">
+          {fruitItem}
+          {vegItem}
+        </ul>
       )
 
       ReactDOM.render(foodList, document.getElementById('root'))
